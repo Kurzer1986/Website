@@ -1,4 +1,47 @@
 // =========================================================
+// GITHUB PAGES – PIN-SCHUTZ
+// =========================================================
+
+const PIN_HASH = "9a20ae78840d1a444686d7ef12f62082888b1f764151438badc3f5e0122f1429";
+
+async function pinPruefen() {
+  const eingabe = document.getElementById("pin-input").value;
+  const daten = new TextEncoder().encode(eingabe);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", daten);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hash = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+
+  if (hash === PIN_HASH) {
+    sessionStorage.setItem("pinFreigegeben", "1");
+    document.getElementById("pin-view").style.display = "none";
+  } else {
+    document.getElementById("pin-fehler").textContent =
+      "Falscher PIN · PIN incorrecto.";
+    document.getElementById("pin-input").value = "";
+    document.getElementById("pin-input").focus();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const pinView = document.getElementById("pin-view");
+  const pinButton = document.getElementById("pin-button");
+  const pinInput = document.getElementById("pin-input");
+
+  if (sessionStorage.getItem("pinFreigegeben") === "1") {
+    pinView.style.display = "none";
+    return;
+  }
+
+  pinButton.addEventListener("click", pinPruefen);
+
+  pinInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      pinPruefen();
+    }
+  });
+});
+
+// =========================================================
 // GRUNDEINSTELLUNGEN
 // =========================================================
 
