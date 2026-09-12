@@ -1,0 +1,1161 @@
+<!doctype html>
+
+<html lang="de">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Uhr-Project</title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap"
+
+    rel="stylesheet"
+
+  >
+
+  <!-- Styles -->
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+
+  <link rel="icon" href="Images/icon.png" type="image/png">
+
+</head>
+
+<body>
+
+  <!-- =========================================================
+
+       START – LÄNDERAUSWAHL
+
+       ========================================================= -->
+
+  <div id="start-view">
+
+<button
+
+  class="start-country"
+
+  id="start-colombia"
+
+  type="button"
+
+>
+
+  🇨🇴
+
+</button>
+
+<button
+
+  class="start-country"
+
+  id="start-germany"
+
+  type="button"
+
+>
+
+  🇩🇪
+
+</button>
+
+  </div>
+
+  <!-- =========================================================
+
+       WILLKOMMEN
+
+       ========================================================= -->
+
+  <div id="welcome-view">
+
+<!-- GEHEIMER BRIEF -->
+
+<div id="letter-overlay">
+
+  <div id="letter-envelope">
+
+    <div class="envelope-back"></div>
+
+    <div class="letter-paper">
+
+      <div id="letter-date"></div>
+
+      <div id="letter-message"></div>
+
+      <div class="letter-navigation">
+
+        <button
+
+          id="letter-prev"
+
+          type="button"
+
+        >
+
+          ←
+
+        </button>
+
+        <span id="letter-page">
+
+          1 / 1
+
+        </span>
+
+        <button
+
+          id="letter-next"
+
+          type="button"
+
+        >
+
+          →
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="envelope-pocket"></div>
+
+    <div class="envelope-flap"></div>
+
+    <div id="letter-cover"></div>
+
+  </div>
+
+  <div id="letter-cover"></div>
+
+  <button
+
+    id="letter-close"
+
+    type="button"
+
+  >
+
+    ×
+
+  </button>
+
+</div>
+
+<!-- WILLKOMMENSINHALT -->
+
+<div class="welcome-content">
+
+  <div id="welcome-text">
+
+    <span id="welcome-message"></span>
+
+    <!-- Wird nur bei der besonderen Begrüßung eingeblendet -->
+
+    <button
+
+      id="secret-letter-button"
+
+      type="button"
+
+      aria-label="Geheime Nachricht"
+
+    >
+
+      ❤️
+
+    </button>
+
+  </div>
+
+  <!-- STIMMUNGSAUSWAHL -->
+
+  <div id="mood-view">
+
+    <div id="mood-question"></div>
+
+    <div class="mood-options">
+
+      <button
+
+        class="mood-option"
+
+        data-mood="happy"
+
+        type="button"
+
+      >
+
+        <span>🥰</span>
+
+        <span id="mood-happy">Glücklich</span>
+
+      </button>
+
+      <button
+
+        class="mood-option"
+
+        data-mood="sad"
+
+        type="button"
+
+      >
+
+        <span>😢</span>
+
+        <span id="mood-sad">Traurig</span>
+
+      </button>
+
+      <button
+
+        class="mood-option"
+
+        data-mood="love"
+
+        type="button"
+
+      >
+
+        <span>🥺</span>
+
+        <span id="mood-love">Liebesbedürftig</span>
+
+      </button>
+
+      <button
+
+        class="mood-option"
+
+        data-mood="tired"
+
+        type="button"
+
+      >
+
+        <span>😴</span>
+
+        <span id="mood-tired">Müde</span>
+
+      </button>
+
+      <button
+
+        class="mood-option"
+
+        data-mood="playful"
+
+        type="button"
+
+      >
+
+        <span>😏</span>
+
+        <span id="mood-playful">Verspielt</span>
+
+      </button>
+
+      <button
+
+        class="mood-option"
+
+        data-mood="simple"
+
+        type="button"
+
+      >
+
+        <span>🤍</span>
+
+        <span id="mood-simple">Einfach so</span>
+
+      </button>
+
+      <div class="envelope-cover"></div>
+
+    </div>
+
+    <div id="mood-response"></div>
+
+    <button
+
+      id="welcome-continue"
+
+      class="btn"
+
+      type="button"
+
+    >
+
+      Weiter
+
+    </button>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- =========================================================
+
+       HAUPTAPP
+
+       ========================================================= -->
+
+  <div class="app">
+
+<!-- HEADER / NAVIGATION -->
+
+<header>
+
+  <div
+
+    class="title"
+
+    id="page-title"
+
+  >
+
+    Rudolstadt ↔ Manizales
+
+  </div>
+
+  <div class="controls">
+
+    <!-- SPRACHE -->
+
+    <button
+
+      class="btn lang-btn"
+
+      id="lang-button"
+
+      type="button"
+
+      title="Sprache wechseln"
+
+    >
+
+      🇨🇴
+
+    </button>
+
+    <!-- UHR -->
+
+    <button
+
+      class="btn active"
+
+      id="clock-view-button"
+
+      type="button"
+
+    >
+
+      Uhr
+
+    </button>
+
+    <!-- WETTER -->
+
+    <button
+
+      class="btn"
+
+      id="weather-view-button"
+
+      type="button"
+
+    >
+
+      Wetter
+
+    </button>
+
+    <!-- WIR -->
+
+    <button
+
+      class="btn"
+
+      id="relationship-view-button"
+
+      type="button"
+
+    >
+
+      Wir
+
+    </button>
+
+    <button
+
+  class="btn"
+
+  id="marias-reise-view-button"
+
+  type="button"
+
+>
+
+  🛫
+
+</button>
+
+  </div>
+
+</header>
+
+<!-- =======================================================
+
+     UHR
+
+     ======================================================= -->
+
+<div
+
+  id="clock-view"
+
+  class="view active"
+
+>
+
+  <div class="cities">
+
+    <!-- RUDOLSTADT -->
+
+    <div class="city rudolstadt-side">
+
+      <div class="city-name">
+
+        Rudolstadt
+
+      </div>
+
+      <div
+
+        class="city-country"
+
+        id="rudolstadt-country"
+
+      >
+
+        Deutschland
+
+      </div>
+
+      <div
+
+        class="city-time"
+
+        id="rudolstadt-time"
+
+      >
+
+        --:--
+
+      </div>
+
+      <div
+
+        class="city-date"
+
+        id="rudolstadt-date"
+
+      >
+
+        --
+
+      </div>
+
+      <div class="city-weather">
+
+        <div
+
+          class="weather-label"
+
+          id="rudolstadt-weather-label"
+
+        >
+
+          Wetter jetzt
+
+        </div>
+
+        <div
+
+          class="weather-value"
+
+          id="rudolstadt-weather"
+
+        >
+
+          Wetter wird geladen …
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MANIZALES -->
+
+    <div class="city manizales-side">
+
+      <div class="city-name">
+
+        Manizales
+
+      </div>
+
+      <div
+
+        class="city-country"
+
+        id="manizales-country"
+
+      >
+
+        Kolumbien
+
+      </div>
+
+      <div
+
+        class="city-time"
+
+        id="manizales-time"
+
+      >
+
+        --:--
+
+      </div>
+
+      <div
+
+        class="city-date"
+
+        id="manizales-date"
+
+      >
+
+        --
+
+      </div>
+
+      <div class="city-weather">
+
+        <div
+
+          class="weather-label"
+
+          id="manizales-weather-label"
+
+        >
+
+          Wetter jetzt
+
+        </div>
+
+        <div
+
+          class="weather-value"
+
+          id="manizales-weather"
+
+        >
+
+          Wetter wird geladen …
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ZEITRECHNER -->
+
+  <div class="meeting">
+
+    <div
+
+      class="meeting-title"
+
+      id="meeting-title"
+
+    >
+
+      Zeitrechner
+
+    </div>
+
+    <div
+
+      class="meeting-note"
+
+      id="meeting-note"
+
+    >
+
+      Ändere eine Zeit – die andere Seite passt sich an.
+
+    </div>
+
+    <div class="meeting-grid">
+
+      <!-- RUDOLSTADT -->
+
+      <div class="meeting-field rudolstadt-side">
+
+        <label id="meeting-rudolstadt-label">
+
+          Rudolstadt
+
+        </label>
+
+        <div class="meeting-controls">
+
+          <select
+
+            class="meeting-select"
+
+            id="rudolstadt-hour"
+
+          ></select>
+
+          <span>:</span>
+
+          <select
+
+            class="meeting-select"
+
+            id="rudolstadt-minute"
+
+          ></select>
+
+          <select
+
+            class="meeting-select"
+
+            id="rudolstadt-period"
+
+          >
+
+            <option value="AM">a. m.</option>
+
+            <option value="PM">p. m.</option>
+
+          </select>
+
+        </div>
+
+        <div
+
+          class="meeting-day"
+
+          id="rudolstadt-meeting-day"
+
+        >
+
+          --
+
+        </div>
+
+      </div>
+
+      <!-- MANIZALES -->
+
+      <div class="meeting-field manizales-side">
+
+        <label id="meeting-manizales-label">
+
+          Manizales
+
+        </label>
+
+        <div class="meeting-controls">
+
+          <select
+
+            class="meeting-select"
+
+            id="manizales-hour"
+
+          ></select>
+
+          <span>:</span>
+
+          <select
+
+            class="meeting-select"
+
+            id="manizales-minute"
+
+          ></select>
+
+          <select
+
+            class="meeting-select"
+
+            id="manizales-period"
+
+          >
+
+            <option value="AM">a. m.</option>
+
+            <option value="PM">p. m.</option>
+
+          </select>
+
+        </div>
+
+        <div
+
+          class="meeting-day"
+
+          id="manizales-meeting-day"
+
+        >
+
+          --
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =======================================================
+
+     WIR
+
+     ======================================================= -->
+
+<div
+
+  id="relationship-view"
+
+  class="view"
+
+>
+
+  <div class="relationship">
+
+    <div class="rel-card">
+
+      <div class="rel-heart">
+
+        ❤️
+
+      </div>
+
+      <div
+
+        class="rel-greeting"
+
+        id="relationship-greeting"
+
+      ></div>
+
+      <div
+
+        class="rel-label"
+
+        id="relationship-title"
+
+      >
+
+        Zusammen seit
+
+      </div>
+
+      <div
+
+        class="rel-since"
+
+        id="relationship-date"
+
+      >
+
+        --
+
+      </div>
+
+      <!-- BEZIEHUNGSSTATISTIK -->
+
+      <div class="rel-stats">
+
+        <div class="rel-stat">
+
+          <span
+
+            class="rel-stat-value"
+
+            id="relationship-days"
+
+          >
+
+            --
+
+          </span>
+
+          <span
+
+            class="rel-stat-label"
+
+            id="relationship-days-label"
+
+          >
+
+            Tage
+
+          </span>
+
+        </div>
+
+        <div class="rel-stat">
+
+          <span
+
+            class="rel-stat-value"
+
+            id="relationship-hours"
+
+          >
+
+            --
+
+          </span>
+
+          <span
+
+            class="rel-stat-label"
+
+            id="relationship-hours-label"
+
+          >
+
+            Stunden
+
+          </span>
+
+        </div>
+
+        <div class="rel-stat">
+
+          <span
+
+            class="rel-stat-value"
+
+            id="relationship-minutes"
+
+          >
+
+            --
+
+          </span>
+
+          <span
+
+            class="rel-stat-label"
+
+            id="relationship-minutes-label"
+
+          >
+
+            Minuten
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- NÄCHSTER BESONDERER TAG -->
+
+      <div
+
+        class="next-event"
+
+        id="next-special"
+
+      >
+
+        <div
+
+          class="next-event-label"
+
+          id="next-special-label"
+
+        >
+
+          Nächster besonderer Tag
+
+        </div>
+
+        <div
+
+          class="next-event-title"
+
+          id="next-special-title"
+
+        >
+
+          --
+
+        </div>
+
+        <div
+
+          class="next-event-meta"
+
+          id="next-special-meta"
+
+        >
+
+          --
+
+        </div>
+
+      </div>
+
+      <!-- ZITAT -->
+
+      <div
+
+        class="rel-quote"
+
+        id="relationship-quote"
+
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- =========================================================
+
+       WETTER
+
+       ========================================================= -->
+
+  <div
+
+    id="weather-view"
+
+    class="view"
+
+  >
+
+<div id="weather-details">
+
+  <div id="rudolstadt-weather-details"></div>
+
+  <div id="manizales-weather-details"></div>
+
+</div>
+
+  </div>
+
+<!-- MARIAS WEG ZU MIR -->
+
+<div id="marias-reise-view" class="view">
+
+  <div class="reise-container">
+
+    <h2 id="reise-titel">🛫 Marias Weg zu mir</h2>
+
+    <p class="reise-intro" id="reise-intro">
+      Alles, was wir brauchen, damit aus 9.000 km endlich eine echte Reise wird. ❤️
+    </p>
+
+    <div class="reise-liste">
+
+      <div class="reise-item">
+        <div class="reise-icon">🛂</div>
+        <div class="reise-info">
+          <h3 id="reise-reisepass">Reisepass</h3>
+          <p id="reise-reisepass-text">Der erste Schritt für die Reise.</p>
+        </div>
+        <div class="reise-kosten">70 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🏥</div>
+        <div class="reise-info">
+          <h3 id="reise-versicherung">Auslandskrankenversicherung</h3>
+          <p id="reise-versicherung-text">Damit Maria während der Reise abgesichert ist.</p>
+        </div>
+        <div class="reise-kosten">100 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🚕</div>
+        <div class="reise-info">
+          <h3 id="reise-abflug-kolumbien">Manizales → Abflughafen</h3>
+          <p id="reise-abflug-kolumbien-text">Die Reise zum Flughafen in Kolumbien.</p>
+        </div>
+        <div class="reise-kosten">150 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🛫</div>
+        <div class="reise-info">
+          <h3 id="reise-flug-deutschland">Flug Kolumbien → Deutschland</h3>
+          <p id="reise-flug-deutschland-text">Der große Schritt über den Atlantik.</p>
+        </div>
+        <div class="reise-kosten">700 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🚗</div>
+        <div class="reise-info">
+          <h3 id="reise-rudolstadt">Flughafen → Rudolstadt</h3>
+          <p id="reise-rudolstadt-text">Die letzte Strecke bis zu mir.</p>
+        </div>
+        <div class="reise-kosten">140 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🍽️</div>
+        <div class="reise-info">
+          <h3 id="reise-verpflegung">Verpflegung</h3>
+          <p id="reise-verpflegung-text">Für die Zeit, in der wir endlich zusammen sind.</p>
+        </div>
+        <div class="reise-kosten">1.000 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🚗</div>
+        <div class="reise-info">
+          <h3 id="reise-flughafen-rueckflug">Rudolstadt → Flughafen</h3>
+          <p id="reise-flughafen-rueckflug-text">Damit Maria wieder sicher zum Rückflug kommt.</p>
+        </div>
+        <div class="reise-kosten">140 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🛬</div>
+        <div class="reise-info">
+          <h3 id="reise-flug-kolumbien">Flug Deutschland → Kolumbien</h3>
+          <p id="reise-flug-kolumbien-text">Der Rückflug nach Hause.</p>
+        </div>
+        <div class="reise-kosten">700 €</div>
+      </div>
+
+      <div class="reise-item">
+        <div class="reise-icon">🚕</div>
+        <div class="reise-info">
+          <h3 id="reise-ankunft-kolumbien">Flughafen → Manizales</h3>
+          <p id="reise-ankunft-kolumbien-text">Der letzte Weg zurück nach Hause.</p>
+        </div>
+        <div class="reise-kosten">150 €</div>
+      </div>
+
+      <div class="reise-item reise-reserve">
+        <div class="reise-icon">🛟</div>
+        <div class="reise-info">
+          <h3 id="reise-reserve">Sicherheitsreserve</h3>
+          <p id="reise-reserve-text">Für alles, was man besser hat, bevor man es braucht.</p>
+        </div>
+        <div class="reise-kosten">1850 €</div>
+      </div>
+
+      <div class="reise-budget">
+
+  <div class="reise-budget-stand">
+    <span id="reise-budget-label">
+      Bereits zurückgelegt
+    </span>
+
+    <strong id="reise-budget-betrag">
+      0 €
+    </strong>
+  </div>
+
+  <div class="reise-budget-bar">
+    <div
+      id="reise-budget-fortschritt"
+      class="reise-budget-fortschritt">
+    </div>
+  </div>
+
+  <div class="reise-budget-info">
+    <span id="reise-budget-rest-label">
+      Noch benötigt
+    </span>
+
+    <strong id="reise-budget-rest">
+      5.000 €
+    </strong>
+  </div>
+
+<div
+  id="reise-geld-scheine"
+  class="reise-geld-scheine">
+
+  <button
+    class="reise-schein"
+    data-euro="10">
+    10 €
+  </button>
+
+  <button
+    class="reise-schein"
+    data-euro="20">
+    20 €
+  </button>
+
+  <button
+    class="reise-schein"
+    data-euro="50">
+    50 €
+  </button>
+
+  <button
+    class="reise-schein"
+    data-euro="100">
+    100 €
+  </button>
+
+</div>
+
+<button
+  id="reise-geld-herausnehmen"
+  class="reise-geld-button">
+  − Geld herausnehmen
+</button>
+
+<script src="saetze.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
