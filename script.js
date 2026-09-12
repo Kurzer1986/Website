@@ -2150,7 +2150,7 @@ async function wetterLaden() {
 
             <img
               class="wappen"
-              src="images/${name.toLowerCase()}.svg"
+              src="Images/${name.toLowerCase()}.svg"
             >
 
             <div>
