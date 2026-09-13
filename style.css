@@ -1443,7 +1443,6 @@ header {
 
 #letter-envelope {
   position: relative;
-
   width: 420px;
   height: 280px;
 
@@ -1552,7 +1551,7 @@ header {
 
   background: #d8b4a0;
 
-  z-index: 6;
+  z-index: 3;
 
   clip-path:
     polygon(
@@ -1569,6 +1568,7 @@ header {
 
 #letter-overlay.open .envelope-flap {
   transform: rotateX(180deg);
+  z-index: 1;
 }
 
 
@@ -1578,6 +1578,18 @@ header {
   display: none;
 }
 
+#letter-envelope > #letter-cover {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -215px;
+  width: 100vw;
+  height: 80%;
+  transform: translateX(-50%);
+  background: #000;
+  z-index: 4;
+  pointer-events: none;
+}
 
 /* Briefinhalt */
 
@@ -1689,7 +1701,6 @@ header {
 
   transform: rotate(90deg);
 }
-
 
 /* =========================================================
    SPRACHENRICHTUNG
